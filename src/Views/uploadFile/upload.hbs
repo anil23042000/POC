@@ -1,0 +1,18 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/api/upload" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{user._id}}">
+    <div class="form-group">
+        <input type="file" name="file" accept=".xlsx" id="file">
+    <div class="form-group">
+
+     <div class="form-group">
+        <label > please enter Your name</label>
+        <input type="text" name="name"  id="name">
+    <div class="form-group">
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="uploadfile/alldata"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>
