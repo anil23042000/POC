@@ -1,28 +1,30 @@
-<h3><a class="btn btn-secondary" href="/user"><i class="fa fa-plus"></i> Create New</a> Users List</h3>
+<h3><a class="btn btn-secondary" href="/api/get"><i class="fa fa-plus"></i> upload new file</a> Infomation of files</h3>
+<h6>{{this.name}}</h6>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>UserType</th>
-            <th>Mobile</th>
-            <th>City</th>
+            <th>SL.NO</th>
+            <th>Project Info</th>
+            <th>File path</th>
+            <th>Name of the File uploader</th>
+            <th>date and time</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         {{#each list}}
         <tr>
-            <td>{{this.file}}</td>
-            <td>{{this.name}}</td>
-            <td>{{this.path}}</td>
-            <td>{{this.datetime}}</td>
-            <td>
-                <a href="/user/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-                <a href="/user/delete/{{this._id}}"
+            <td>{{this.[0]}}</td>
+            <td>{{this.[1]}}</td>
+            <td>{{this.[2]}}</td>
+            <td>{{this.[3]}}</td>
+            <td>{{this.[4]}}</td>
+            {{!-- <td>
+                <a href="/user/{{this.[0]}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/user/delete/{{this.[0]}}"
                     onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg"
                         aria-hidden="true"></i></a>
-            </td>
+            </td> --}}
         </tr>
         {{/each}}
     </tbody>

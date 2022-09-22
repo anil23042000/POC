@@ -4,6 +4,20 @@ const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+var mammoth = require("mammoth");
+var multer = require('multer');
+const xlsxFile = require('read-excel-file/node');
+
+const storageEngin = multer.diskStorage({
+    destination: function (request, file, callback) {
+        callback(null, "./uploads/")
+    },
+    filename: function (request, file, callback) {
+        callback(null, file.originalname)
+    }
+});
+const upload = multer({ storage: storageEngin })
+
 
 async function getData(req, res) {
     res.render("uploadFile/upload", {
@@ -13,22 +27,25 @@ async function getData(req, res) {
 }
 
 
-async function insertData(req, res) {
-    const { file, name } = req.body;
-    const path = req.file.path;
+async function uploadFile(req, res) {
+    console.log(req.file.filename)
 
-    fs.readFile(path,file, function (err, data) {
-        if (err) throw err;
-        console.log(data)
+    xlsxFile('./uploads/' + req.file.filename).then((rows) => {
+        const a = [];
+        for (let index = 0; index < rows.length; index++) {
+            if (index == 0) {
+                continue;
+            } else {
+                a.push(rows[index]);
+            }
+        }
+        console.table(a);
+        res.render('uploadFile/alldata', { list: a });
     })
-
-
-
-    res.send(name)
 }
 
 
 module.exports = {
     getData,
-    insertData
+    uploadFile
 }
