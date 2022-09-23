@@ -21,8 +21,11 @@ const storageEngin = multer.diskStorage({
 });
 const upload = multer({ storage: storageEngin })
 
-router.get("/get", controller.getData);
-router.post("/upload", upload.single("files"),controller.uploadFile);
+router.get("/", controller.getData);
+router.post("/upload", upload.single("fileName"), controller.uploadFile);
+router.get("/list", controller.listAll);
+router.get("/:id", controller.readData);
+router.get("/delete/:id", controller.deletesingle);
 //  async (req, res, next) => {
 
 //     console.log(req.file.filename)

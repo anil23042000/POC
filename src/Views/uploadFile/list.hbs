@@ -1,0 +1,30 @@
+<h3><a class="btn btn-secondary" href="/api"><i class="fa fa-plus"></i> upload new file</a> Projects </h3>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Project Info</th>
+            <th>File path</th>
+            <th>File Name</th>
+            <th>uploader Name</th>
+            <th>date&time</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.projectInfo}}</td>
+            <td>{{this.filePath}}</td>
+            <td>{{this.fileName}}</td>
+            <td>{{this.userName}}</td>
+            <td>{{this.dateAndTime}}</td>
+            <td>
+                <a href="/api/{{this._id}}"><i class='fa fa-book' style='font-size:24px' aria-hidden="true"></i></a>
+                <a href="/api/delete/{{this._id}}"
+                    onclick="return confirm('Are you sure to delete this project ?');"><i class="fa fa-trash fa-lg"
+                        aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

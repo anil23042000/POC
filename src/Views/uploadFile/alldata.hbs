@@ -1,4 +1,4 @@
-<h3><a class="btn btn-secondary" href="/api/get"><i class="fa fa-plus"></i> upload new file</a> Infomation of files</h3>
+<h3><a class="btn btn-secondary" href="/api"><i class="fa fa-plus"></i> upload new file</a> Infomation of files</h3>
 <h6>{{this.name}}</h6>
 <table class="table table-striped">
     <thead>
@@ -19,12 +19,6 @@
             <td>{{this.[2]}}</td>
             <td>{{this.[3]}}</td>
             <td>{{this.[4]}}</td>
-            {{!-- <td>
-                <a href="/user/{{this.[0]}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-                <a href="/user/delete/{{this.[0]}}"
-                    onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg"
-                        aria-hidden="true"></i></a>
-            </td> --}}
         </tr>
         {{/each}}
     </tbody>

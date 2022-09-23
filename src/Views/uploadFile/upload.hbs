@@ -1,18 +1,24 @@
-<h3>{{viewTitle}}</h3>
+<h3>Upload Project Details</h3>
 
 <form action="/api/upload" method="POST" autocomplete="off" enctype="multipart/form-data">
-    <input type="hidden" name="_id" value="{{user._id}}">
-    <div class="form-group">
-        <input type="file" name="files"  id="files">
+    <input type="hidden" name="_id" value="{{Projects._id}}">
+     <div class="form-group">
+        <label > please enter Your name</label>
+        <input type="text" class="form-control" name="name"  id="name" required="">
     <div class="form-group">
 
      <div class="form-group">
-        <label > please enter Your name</label>
-        <input type="text" name="name"  id="name" required="">
+        <label > enter Project Info </label>
+        <input type="text" class="form-control" name="fileInfo"  id="fileInfo" required="">
+    <div class="form-group">  <br>  
+
     <div class="form-group">
+        <input type="file" class="form-control" name="fileName" id="fileName" id="files">
+    <div class="form-group"><br>
+
 
     <div class="form-group">
         <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
-        {{!-- <a class="btn btn-secondary" href="./alldata"><i class="fa fa-list-alt"></i> View All</a> --}}
+        <a class="btn btn-secondary" href="/api/list"><i class="fa fa-list-alt"></i> View All</a>
     </div>
 </form>

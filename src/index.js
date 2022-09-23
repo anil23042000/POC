@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
 const path = require('path');
 const routes = require("./Routes/route")
+require('./Config/db');
 
 //const exphbs1 = require('express-handlebars');
 const app = express();
@@ -21,5 +22,3 @@ app.use("/api", routes);
 app.listen(4001, () => {
     console.log('Express server started at port : 4001');
 });
-
-

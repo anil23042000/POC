@@ -7,6 +7,10 @@ const path = require('path');
 var mammoth = require("mammoth");
 var multer = require('multer');
 const xlsxFile = require('read-excel-file/node');
+const projectSchema = require('../Model/projectSchema');
+const mongoose = require('mongoose');
+const Project = mongoose.model('Projects');
+const service = require('../Service/service')
 
 const storageEngin = multer.diskStorage({
     destination: function (request, file, callback) {
@@ -27,25 +31,41 @@ async function getData(req, res) {
 }
 
 
-async function uploadFile(req, res) {
-    console.log(req.file.filename)
+async function uploadFile(req, res,next) {
 
-    xlsxFile('./uploads/' + req.file.filename).then((rows) => {
-        const a = [];
-        for (let index = 0; index < rows.length; index++) {
-            if (index == 0) {
-                continue;
-            } else {
-                a.push(rows[index]);
-            }
-        }
-        console.table(a);
-        res.render('uploadFile/alldata', { list: a });
-    })
+  service.insertData(req,res);
+    // xlsxFile('./uploads/' + req.file.filename).then((rows) => {
+    //     const a = [];
+    //     for (let index = 0; index < rows.length; index++) {
+    //         if (index == 0) {
+    //             continue;
+    //         } else {
+    //             a.push(rows[index]);
+    //         }
+    //     }
+    //     console.table(a);
+    //     res.render('uploadFile/alldata', { list: a });
+    // })
 }
+async function listAll(req,res,next){
+    service.allProjeects(req,res);
+}
+
+async function deletesingle(req,res,next){
+    service.deleteByid(req,res);
+}
+
+
+async function readData(req,res,next){
+    service.readOneFile(req,res);
+}
+
 
 
 module.exports = {
     getData,
-    uploadFile
+    listAll,
+    uploadFile,
+    deletesingle,
+    readData
 }
