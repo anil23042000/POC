@@ -31,9 +31,9 @@ async function getData(req, res) {
 }
 
 
-async function uploadFile(req, res,next) {
+async function uploadFile(req, res, next) {
 
-  service.insertData(req,res);
+    service.insertData(req, res);
     // xlsxFile('./uploads/' + req.file.filename).then((rows) => {
     //     const a = [];
     //     for (let index = 0; index < rows.length; index++) {
@@ -47,17 +47,17 @@ async function uploadFile(req, res,next) {
     //     res.render('uploadFile/alldata', { list: a });
     // })
 }
-async function listAll(req,res,next){
-    service.allProjeects(req,res);
+async function listAll(req, res, next) {
+    service.allProjeects(req, res);
 }
 
-async function deletesingle(req,res,next){
-    service.deleteByid(req,res);
+async function deletesingle(req, res, next) {
+    service.deleteByid(req, res);
 }
 
 
-async function readData(req,res,next){
-    service.readOneFile(req,res);
+async function readData(req, res, next) {
+    service.readOneFile(req, res);
 }
 
 
