@@ -79,11 +79,11 @@ async function deleteByid(req, res) {
 async function unlinkFile(id) {
     var fileId = new mongoose.Types.ObjectId(id);
     console.log(fileId)
-    const projects = await Projects.findOne({"_id":fileId}).exec();
+    const projects = await Projects.findOne({ "_id": fileId }).exec();
     console.log(projects)
 
-    fs.unlink(projects.filePath,(err)=>{
-        if(err) throw err
+    fs.unlink(projects.filePath, (err) => {
+        if (err) throw err
         console.log("Success")
     })
 
