@@ -7,57 +7,51 @@ const path = require('path');
 var mammoth = require("mammoth");
 var multer = require('multer');
 const xlsxFile = require('read-excel-file/node');
-const projectSchema = require('../Model/projectSchema');
+const projectSchema = require('../model/file_Schema');
 const mongoose = require('mongoose');
 const Project = mongoose.model('Projects');
-const service = require('../Service/service')
+const service = require('../service/file_service')
 
-const storageEngin = multer.diskStorage({
-    destination: function (request, file, callback) {
-        callback(null, "./uploads/")
-    },
-    filename: function (request, file, callback) {
-        callback(null, file.originalname)
-    }
-});
-const upload = multer({ storage: storageEngin })
+//file  controller 
 
 
+//rendering to hbs file
 async function getData(req, res) {
     res.render("uploadFile/upload", {
         viewTitle: "Insert Users"
     });
-
 }
 
-
+//calling service file for inserting new info
 async function uploadFile(req, res, next) {
-
     service.insertData(req, res);
-    // xlsxFile('./uploads/' + req.file.filename).then((rows) => {
-    //     const a = [];
-    //     for (let index = 0; index < rows.length; index++) {
-    //         if (index == 0) {
-    //             continue;
-    //         } else {
-    //             a.push(rows[index]);
-    //         }
-    //     }
-    //     console.table(a);
-    //     res.render('uploadFile/alldata', { list: a });
-    // })
 }
+
+//calling service file for listing out all projects
 async function listAll(req, res, next) {
     service.allProjeects(req, res);
 }
 
+
+//calling service file for deleting single project
 async function deletesingle(req, res, next) {
     service.deleteByid(req, res);
 }
 
 
+//calling service file for reading file
 async function readData(req, res, next) {
     service.readOneFile(req, res);
+}
+
+//calling service file for getting single file info
+async function updateFile(req, res, next) {
+    service.getOneFile(req, res);
+}
+
+//calling service file for updating
+async function updateOneFile(req, res, next) {
+    service.replaceFile(req, res);
 }
 
 
@@ -67,5 +61,7 @@ module.exports = {
     listAll,
     uploadFile,
     deletesingle,
-    readData
+    readData,
+    updateFile,
+    updateOneFile
 }

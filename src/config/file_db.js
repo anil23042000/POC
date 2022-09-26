@@ -5,4 +5,4 @@ mongoose.connect('mongodb://localhost:27017/projectInfo', { useNewUrlParser: tru
     else { console.log('Error in DB connection : ' + err) }
 });
 
-require('../Model/projectSchema'); 
+require('../model/file_Schema'); 

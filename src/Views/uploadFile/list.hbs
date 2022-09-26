@@ -6,8 +6,8 @@
             <th>File path</th>
             <th>File Name</th>
             <th>uploader Name</th>
-            <th>date&time</th>
-            <th></th>
+            <th type="date">date&time</th>
+            <th ></th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +23,9 @@
                 <a href="/api/delete/{{this._id}}"
                     onclick="return confirm('Are you sure to delete this project ?');"><i class="fa fa-trash fa-lg"
                         aria-hidden="true"></i></a>
+                <a href="/api/update/{{this._id}}"
+                    onclick="return confirm('Are you sure to update this project ?');"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+
             </td>
         </tr>
         {{/each}}

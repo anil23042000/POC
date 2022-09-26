@@ -3,8 +3,8 @@ const handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
 const path = require('path');
-const routes = require("./Routes/route")
-require('./Config/db');
+const routes = require("./routes/file_route")
+require('./config/file_db');
 
 //const exphbs1 = require('express-handlebars');
 const app = express();
