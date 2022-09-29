@@ -54,16 +54,16 @@ async function readOneFile(req, res) {
 
     //here reading data after find out 
     xlsxFile(projects.filePath).then((rows) => {
-        const a = [];
-        for (let index = 0; index < rows.length; index++) {
-            if (index == 0) {
-                continue;
-            } else {
-                a.push(rows[index]);
-            }
-        }
-        console.table(a);
-        res.render('uploadFile/alldata', { list: a });
+        //const a = [];
+        // for (let index = 0; index < rows.length; index++) {
+        //     if (index == 0) {
+        //         continue;
+        //     } else {
+        //         a.push(rows[index]);
+        //     }
+        // }
+        //console.table(a);
+        res.render('uploadFile/alldata', { list: rows });
     })
 }
 

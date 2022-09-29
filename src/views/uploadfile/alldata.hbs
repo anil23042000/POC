@@ -1,7 +1,7 @@
 <h3><a class="btn btn-secondary" href="/api"><i class="fa fa-plus"></i> upload new file</a> Infomation of files</h3>
 <h6>{{this.name}}</h6>
 <table class="table table-striped">
-    <thead>
+    {{!-- <thead>
         <tr>
             <th>SL.NO</th>
             <th>Project Info</th>
@@ -10,15 +10,12 @@
             <th>date and time</th>
             <th></th>
         </tr>
-    </thead>
+    </thead> --}}
     <tbody>
         {{#each list}}
         <tr>
-            <td>{{this.[0]}}</td>
-            <td>{{this.[1]}}</td>
-            <td>{{this.[2]}}</td>
-            <td>{{this.[3]}}</td>
-            <td>{{this.[4]}}</td>
+            <td>{{this.[list]}}</td>
+            
         </tr>
         {{/each}}
     </tbody>
